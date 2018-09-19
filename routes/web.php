@@ -12,8 +12,8 @@
 */
 Route::resource('genres', 'GenresController');
 Route::resource('countries', 'CountriesController');
-
 Route::resource('films', 'FilmsController');
+Route::resource('comments','CommentsController');
 
 Route::get('/', 'FilmsController@index');
 

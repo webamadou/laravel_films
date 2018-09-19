@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Country;
 use App\Film;
 use Illuminate\Http\Request;
@@ -107,8 +108,12 @@ class FilmsController extends Controller
      */
     public function film($slug)
     {
-        $film = Film::where('slug',$slug)->first();
-        return view('films.film',compact('film'));
+        $film = Film::with(['genre','country','comments'])->where('slug',$slug)->first();
+        $comments = $film->comments;
+        if($film)
+            return view('films.film',compact('film','comments'));
+        else
+            redirect()->route('films.index');
     }
 
     /**
