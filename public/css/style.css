@@ -16,6 +16,7 @@ a{
 .container-fluid.comments-list .comment-line:nth-child(2n) {
     background: #7fa4da;
 }
+<<<<<<< HEAD
 .row.line {
     background: #000000ab;
     margin: 3px 0;
@@ -23,3 +24,5 @@ a{
 }
 .row.line a {
     color: #ffffff;}
+=======
+>>>>>>> master
