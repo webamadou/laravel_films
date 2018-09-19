@@ -1,5 +1,7 @@
 @extends('films')
-
+@section('title_page')
+    Genres
+@endsection
 @section('content')
     <H2>Films List</H2>
     <table class="table table-active table-striped">
