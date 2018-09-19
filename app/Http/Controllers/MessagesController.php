@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Genre ;
-class GenresController extends Controller
+
+class MessagesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -17,8 +13,7 @@ class GenresController extends Controller
      */
     public function index()
     {
-        $genres = Genre::all();
-        return view('genres.index',compact('genres'));
+        //
     }
 
     /**
@@ -28,7 +23,7 @@ class GenresController extends Controller
      */
     public function create()
     {
-        return view('genres.create');
+        //
     }
 
     /**
@@ -39,12 +34,7 @@ class GenresController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'name'         => 'required',
-            'slug'         => 'required'
-        ]);
-        Genre::create($request->all());
-        return redirect()->route('genres.index')->with('success','Genre saved');
+        //
     }
 
     /**
@@ -55,8 +45,7 @@ class GenresController extends Controller
      */
     public function show($id)
     {
-        $genre = Genre::find($id);
-        return view('genres.show', compact('genre'));
+        //
     }
 
     /**
@@ -67,8 +56,7 @@ class GenresController extends Controller
      */
     public function edit($id)
     {
-        $genre = Genre::find($id);
-        return view('genres.edit', compact('genre'));
+        //
     }
 
     /**
@@ -80,13 +68,7 @@ class GenresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        request()->validate([
-            'name'         => 'required',
-            'slug'         => 'required'
-        ]);
-        $genre = Genre::find($id);
-        $genre->update($request->all());
-        return redirect()->route('genres.show',$genre->id)->with('success','Genre saved');
+        //
     }
 
     /**
@@ -97,8 +79,6 @@ class GenresController extends Controller
      */
     public function destroy($id)
     {
-        $genre = Genre::find($id);
-        $genre->delete();
-        return redirect()->route('genres.index');
+        //
     }
 }
