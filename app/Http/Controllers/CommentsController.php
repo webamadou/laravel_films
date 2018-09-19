@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class MessagesController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +36,20 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'         => 'required|min:3',
+            'comment'      => 'required|min:3',
+        ]);
+
+        $comment = new Comment();
+
+        $comment->name         = $request->get('name');
+        $comment->comment      = $request->get('comment');
+        $comment->film_id      = $request->get('film_id');
+        $comment->user_id      = Auth::user()->id;
+
+        $comment->save();
+        return redirect()->route('film',['slug'=>$comment->film->slug])->with('success','Comment saved');
     }
 
     /**

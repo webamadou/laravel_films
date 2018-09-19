@@ -20,6 +20,7 @@
     <link href="{{ url('css/app.css') }}" rel="stylesheet">
     <link href="{{ url('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ url('bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet">
+    <link href="{{ url('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app" class="container-fluid">
